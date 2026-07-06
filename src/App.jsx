@@ -1,6 +1,6 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom"
 
-
+import DefaultLayout from "./layouts/DefaultLayout";
 
 function App() {
 
@@ -9,7 +9,7 @@ function App() {
     <>
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<h1>Hello Books</h1>} />
+          <Route path="/" element={<DefaultLayout />} />
         </Routes>
       </BrowserRouter>
     </>
