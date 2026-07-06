@@ -22,13 +22,7 @@ export default function AppHeader() {
                         <ul className="navbar-nav ms-auto">
                             <li className="nav-item">
                                 <NavLink className="nav-link" to="/">
-                                    Home
-                                </NavLink>
-                            </li>
-
-                            <li className="nav-item">
-                                <NavLink className="nav-link" to="/movies">
-                                    Movies
+                                    Home/Movies
                                 </NavLink>
                             </li>
 
