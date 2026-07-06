@@ -1,18 +1,16 @@
 import { Outlet } from "react-router-dom";
+import AppHeader from "../components/AppHeader";
+import AppFooter from "../components/AppFooter";
 
 function DefaultLayout() {
 
     return (
         <>
-            <header>
-                <h1>Header</h1>
-            </header>
+            <AppHeader />
             <main>
                 <Outlet />
             </main>
-            <footer>
-                <h1>Footer</h1>
-            </footer>
+            <AppFooter />
         </>
     )
 };
