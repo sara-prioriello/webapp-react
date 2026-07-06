@@ -1,4 +1,5 @@
 import { NavLink } from "react-router-dom";
+import { menuData } from "../data/menuData";
 
 export default function AppHeader() {
     return (
@@ -20,23 +21,13 @@ export default function AppHeader() {
 
                     <div className="collapse navbar-collapse" id="main-menu">
                         <ul className="navbar-nav ms-auto">
-                            <li className="nav-item">
-                                <NavLink className="nav-link" to="/">
-                                    Home/Movies
-                                </NavLink>
-                            </li>
-
-                            <li className="nav-item">
-                                <NavLink className="nav-link" to="/about">
-                                    About
-                                </NavLink>
-                            </li>
-
-                            <li className="nav-item">
-                                <NavLink className="nav-link" to="/contact">
-                                    Contact
-                                </NavLink>
-                            </li>
+                            {menuData.map((item) => (
+                                <li key={item.id} className="nav-item">
+                                    <NavLink className="nav-link" to={item.path}>
+                                        {item.label}
+                                    </NavLink>
+                                </li>
+                            ))}
                         </ul>
                     </div>
                 </div>
@@ -44,3 +35,4 @@ export default function AppHeader() {
         </header>
     );
 }
+
