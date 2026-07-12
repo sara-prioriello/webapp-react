@@ -1,8 +1,46 @@
 import DefaultLayout from "../layouts/DefaultLayout";
+import { useParams } from 'react-router-dom';
+import { useEffect, useState } from 'react'
+import { Link } from "react-router-dom";
+
 function MovieDetails() {
+    const { id } = useParams();
+
+    const [movie, setMovie] = useState(null);
+    const url = `http://localhost:3000/movies/${id}`;
+
+    function fetchMovies(url) {
+        fetch(url)
+            .then(response => response.json())
+            .then(data => setMovie(data))
+            .catch(error => console.error(error))
+    }
+    useEffect(() => {
+        fetchMovies(url);
+    }, [url])
+
     return (
 
-        <h1>Movie Details</h1>
+        < section className="single-movies bg-light py-5" >
+            <h1>Dettaglio film {id}</h1>
+            <div className="container my-4">
+                <div className="row">
+                    <div className="col-12 col-md-4">
+                        <img
+                            src={`http://localhost:3000/img/${movie?.image}`}
+                            alt={movie?.title || ""}
+                            className="img-fluid rounded-3"
+                        />
+                    </div>
+                    <div className="col-12 col-md-8">
+                        <h1>{movie ? movie.title : "Movie Title"}</h1>
+                        <div className='text-sm'>Director: {movie ? movie.director : "John Doe"}</div>
+                        <div className='text-sm'>Year: {movie && movie.release_year}</div>
+                        <div className="pt-3"><strong>Abstract</strong>: {movie ? movie.abstract : "This is a brief description of the movie."}</div>
+                    </div>
+                </div>
+            </div>
+        </ section>
 
     )
 }
