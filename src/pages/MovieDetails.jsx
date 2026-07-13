@@ -2,6 +2,7 @@ import DefaultLayout from "../layouts/DefaultLayout";
 import { useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react'
 import { Link } from "react-router-dom";
+import RevForm from "../components/RevForm";
 
 function MovieDetails() {
     const { id } = useParams();
@@ -64,6 +65,10 @@ function MovieDetails() {
                     </div>
 
                 </div>
+                <RevForm
+                    url="http://localhost:3000"
+                    movieId={id}
+                />
             </div>
         </ section>
 
